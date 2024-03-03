@@ -1,31 +1,25 @@
-# Dokumentasi Load Balancer Kafka Topics dengan Docker Compose
+# Dokumentasi Deploy Picker dengan Docker Compose
 
 ## Overview
 
-Dokumentasi ini menjelaskan cara menggunakan Docker Compose untuk secara otomatis membuat load balancer.
+Layanan Picker adalah layanan yang digunakan untuk melakukan prediksi dengan melakukan integrasi dengan layanan ML melalui REST API.
 
 ## Requirements
 
 - Docker dan Docker Compose terinstal pada sistem.
-- Port `80` atau yang sesuai dengan konfigurasi dibuka agar bisa diakses dari luar vm.
-- Menyesuaikan konfigurasi pada file `nginx.conf`
-
-  - Pastikan pada bagian ini sudah diubah:
-
-    ```conf
-      upstream backend {
-          server <ml1-ip>:<ml1-port>;
-          server <ml2-ip>:<ml2-port>;
-          server <ml3-ip>:<ml3-port>;
-      }
-    ```
+- Layanan Kafka sudah terdeploy.
+- Pastikan environment variables sudah sesuai.
 
 ## Deployment Steps
 
 ### 1. Menjalankan Docker Compose
 
-Setelah konfigurasi selesai, jalankan Docker Compose untuk memulai proses pembuatan load balancer:
+Setelah konfigurasi selesai, jalankan Docker Compose untuk memulai proses pembuatan layanan:
 
 ```sh
 docker-compose up -d
 ```
+
+## Catatan
+
+- Lihat `docker-compose.double.yaml` untuk melalukan deployment lebih dari 1 layanan dalam 1 vm.

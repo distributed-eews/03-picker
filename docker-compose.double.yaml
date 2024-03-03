@@ -1,0 +1,25 @@
+version: '3'
+services:
+  picker2:
+    image: pragusga/eews:picker-v1
+    container_name: picker2
+    environment:
+      - BOOTSTRAP_SERVERS=<ip-kafka1>:<port-kafka1>,<ip-kafka2>:<port-kafka2>
+      - TOPIC_CONSUMER=p_arrival
+      - TOPIC_PRODUCER=picker
+      - ML_URL=http://<ip-ml>:<port-ml> # gunakan url load balancer jika memakai load balancer
+      - REDIS_HOST=<redis-host>
+      - REDIS_PORT=<redis-port>
+    mem_limit: 512m
+
+  picker3:
+    image: pragusga/eews:picker-v1
+    container_name: picker3
+    environment:
+      - BOOTSTRAP_SERVERS=<ip-kafka1>:<port-kafka1>,<ip-kafka2>:<port-kafka2>
+      - TOPIC_CONSUMER=p_arrival
+      - TOPIC_PRODUCER=picker
+      - ML_URL=http://<ip-ml>:<port-ml> # gunakan url load balancer jika memakai load balancer
+      - REDIS_HOST=<redis-host>
+      - REDIS_PORT=<redis-port>
+    mem_limit: 512m

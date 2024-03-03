@@ -1,7 +1,13 @@
 version: '3'
 services:
-  lb:
-    image: nginx
-    container_name: lb
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  picker1:
+    image: pragusga/eews:picker-v1
+    container_name: picker1
+    environment:
+      - BOOTSTRAP_SERVERS=<ip-kafka1>:<port-kafka1>,<ip-kafka2>:<port-kafka2>
+      - TOPIC_CONSUMER=p_arrival
+      - TOPIC_PRODUCER=picker
+      - ML_URL=http://<ip-ml>:<port-ml> # gunakan url load balancer jika memakai load balancer
+      - REDIS_HOST=<redis-host>
+      - REDIS_PORT=<redis-port>
+    mem_limit: 512m
