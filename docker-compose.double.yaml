@@ -10,7 +10,7 @@ services:
       - ML_URL=http://<ip-ml>:<port-ml> # gunakan url load balancer jika memakai load balancer
       - REDIS_HOST=<redis-host>
       - REDIS_PORT=<redis-port>
-      - REDIS_PASSWORD=<redis-port>
+      - REDIS_PASSWORD=<redis-pass>
       - MONGO_DB=<mongodb-database>
       - MONGO_HOST=<mongodb-host>
       - MONGO_PORT=<mongodb-port>
@@ -26,7 +26,7 @@ services:
       - ML_URL=http://<ip-ml>:<port-ml> # gunakan url load balancer jika memakai load balancer
       - REDIS_HOST=<redis-host>
       - REDIS_PORT=<redis-port>
-      - REDIS_PASSWORD=<redis-port>
+      - REDIS_PASSWORD=<redis-pass>
       - MONGO_DB=<mongodb-database>
       - MONGO_HOST=<mongodb-host>
       - MONGO_PORT=<mongodb-port>
