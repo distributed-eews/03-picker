@@ -14,4 +14,6 @@ services:
       - MONGO_DB=<mongodb-database>
       - MONGO_HOST=<mongodb-host>
       - MONGO_PORT=<mongodb-port>
+      - MONGO_USER=<mongodb-user>
+      - MONGO_PASSWORD=<mongodb-password>
     mem_limit: 512m
